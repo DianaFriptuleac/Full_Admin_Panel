@@ -71,7 +71,10 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [],
+            "providers": [
+                "Filament\\Actions\\ActionsServiceProvider"
+            ]
         }
     },
     "config": {
