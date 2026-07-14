@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Categories\Tables;
 
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
@@ -17,7 +18,7 @@ class CategoriesTable
             ->columns([
                 TextColumn::make('name')
                     ->label('Category name')
-                      ->searchable()
+                    ->searchable()
                     ->sortable(),
                 TextColumn::make('created_at')
                     ->label('Creato il')
@@ -37,6 +38,7 @@ class CategoriesTable
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
+                DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

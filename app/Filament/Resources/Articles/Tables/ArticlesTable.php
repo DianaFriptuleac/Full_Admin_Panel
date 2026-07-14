@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Articles\Tables;
 
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
@@ -28,8 +29,8 @@ class ArticlesTable
                     ->square(),
 
                 // Titolo dell'articolo
-                TextColumn::make('title')
-                    ->label('Titolo')
+                TextColumn::make('name')
+                    ->label('Name')
                     // Permette la ricerca tramite il titolo
                     ->searchable()
                     // Permette l'ordinamento crescente o decrescente
@@ -47,7 +48,7 @@ class ArticlesTable
                 TextColumn::make('tags.name')
                     ->label('Tag')
                     ->badge()
-                    ->separator(',')
+                    ->separator(', ')
                     ->searchable(),
                 // Icona per indicare se è pubblicato
                 IconColumn::make('is_published')
@@ -89,6 +90,7 @@ class ArticlesTable
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
+                DeleteAction::make(),
             ])
             // Definisce le azioni disponibili quando vengono selezionati più record
             ->toolbarActions([

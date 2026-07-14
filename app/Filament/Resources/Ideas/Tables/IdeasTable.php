@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Ideas\Tables;
 
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
@@ -15,7 +16,7 @@ class IdeasTable
     {
         return $table
             ->columns([
-           // Mostra il titolo dell'idea
+                // Mostra il titolo dell'idea
                 TextColumn::make('title')
                     ->label('Titolo')
                     ->searchable()
@@ -65,6 +66,7 @@ class IdeasTable
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
+                DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

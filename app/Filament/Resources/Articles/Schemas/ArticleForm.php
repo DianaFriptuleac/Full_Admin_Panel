@@ -48,7 +48,7 @@ class ArticleForm
 
                 // Campo di testo per inserire il titolo dell'articolo
                 TextInput::make('name')
-                    ->label('Titolo')
+                    ->label('Name')
                     ->required()
                     ->maxLength(255)
                     // Aggiorna il valore quando il campo perde il focus
