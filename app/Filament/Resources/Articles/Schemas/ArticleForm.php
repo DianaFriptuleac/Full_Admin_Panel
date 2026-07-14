@@ -34,6 +34,18 @@ class ArticleForm
                     ->preload()
                     ->required(),
 
+                // Tag section
+                Select::make('tags')
+                    ->label('Tag')
+                    // Usa la relazione tags() del model Article e mostra il campo name del model Tag
+                    ->relationship('tags', 'name')
+                    // Permette di selezionare più tag
+                    ->multiple()
+                    // Permette di cercare i tag
+                    ->searchable()
+                    // Carica subito i tag esistenti
+                    ->preload(),
+
                 // Campo di testo per inserire il titolo dell'articolo
                 TextInput::make('name')
                     ->label('Titolo')

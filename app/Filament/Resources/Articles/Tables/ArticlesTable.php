@@ -43,6 +43,12 @@ class ArticlesTable
                     ->searchable()
                     ->sortable(),
 
+                // Tags
+                TextColumn::make('tags.name')
+                    ->label('Tag')
+                    ->badge()
+                    ->separator(',')
+                    ->searchable(),
                 // Icona per indicare se è pubblicato
                 IconColumn::make('is_published')
                     ->label('Pubblicato')
@@ -71,6 +77,13 @@ class ArticlesTable
                 SelectFilter::make('category')
                     ->label('Categoria')
                     ->relationship('category', 'name'),
+
+                // Permette di filtrare gli articoli per tag
+                SelectFilter::make('tags')
+                    ->label('Tag')
+                    ->relationship('tags', 'name')
+                    ->multiple()
+                    ->preload(),
             ])
             // Definisce le azioni disponibili per ogni riga
             ->recordActions([
