@@ -6,6 +6,7 @@ use App\Filament\Resources\Tags\TagResource;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
+use Override;
 
 class EditTag extends EditRecord
 {
@@ -17,5 +18,11 @@ class EditTag extends EditRecord
             ViewAction::make(),
             DeleteAction::make(),
         ];
+    }
+    //dopo il salvataggio torna alla pagina dei tags
+    #[Override]
+    protected function getRedirectUrl(): string
+    {
+        return static::$resource::getUrl('index');
     }
 }
