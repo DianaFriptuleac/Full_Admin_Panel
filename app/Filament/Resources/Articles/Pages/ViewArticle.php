@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Articles\Pages;
 
 use App\Filament\Resources\Articles\ArticleResource;
+use Filament\Actions\Action;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
@@ -13,6 +14,12 @@ class ViewArticle extends ViewRecord
     protected function getHeaderActions(): array
     {
         return [
+            //BTN Back
+            Action::make('back')
+                ->label('Back')
+                ->icon('heroicon-o-arrow-uturn-left')
+                ->color('success')
+                ->url(ArticleResource::getUrl('index')),
             EditAction::make(),
         ];
     }
